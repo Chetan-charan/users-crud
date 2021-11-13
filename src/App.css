@@ -1,38 +1,63 @@
-.App {
-  text-align: center;
+
+.all-users {
+  display: flex;
+  gap: 50px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 2rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.user {
+  background-color: wheat;
+  width: min-content;
+  padding: 15px;
+  border-radius: 6px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.user-profile-pic {
+  width: 320px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.user-information {
+  margin-left: 20%;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+ 
+}
+
+.buttons {
+  display: flex;
+  gap: 3rem;
+}
+
+.input-fields {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 8px;
+  width: 30%;
+  margin: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.header {
+   
+  gap: 2rem;
+ 
+
+  display: flex;
+  flex-direction: row;
+  padding-left: 5%;
+
+  font-size: 1.5rem;
+  font-family: ff-din-web,Calibri,Arial,sans-serif;
+  top:0%;
+  
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.user-Info{
+  margin-left: 3rem;
 }
