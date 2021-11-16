@@ -8,10 +8,7 @@ import Button from '@mui/material/Button';
 export function EditUser({ users, setUsers }) {        
   const history = useHistory();
   const { id } = useParams();
-  console.log(id);
-  console.log(users);
   const user = users[id];
-  console.log(user);
   const [Name, setName] = useState(user.Name);             //given the initial values which are equal to current values
   const [age, setAge] = useState(user.age);
   const [city, setCity] = useState(user.city);
