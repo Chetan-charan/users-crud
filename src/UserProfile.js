@@ -1,19 +1,26 @@
-import { useParams } from 'react-router-dom';
 import Button from '@mui/material/Button';
-import { useHistory } from 'react-router-dom';
+import { useHistory,useParams } from 'react-router-dom';
+import { useState } from 'react';
 
 
-
-export function UserProfile({ users }) {         //Component to Display the profile of user with details.
+export function UserProfile() {                                 //Component to Display the profile of user with details.
   const { id } = useParams();
   const history = useHistory();
-  const userPro = users[id];
-  return <div className='user-Info'>
-    <img style={{ width: '400px', height: '380px', objectFit: 'cover' }} src={userPro.profilePic} alt={userPro.Name} />
-    <h2>{userPro.Name}</h2>
-    <h5>Age: {userPro.age}</h5>
-    <h5>City: {userPro.city}</h5>
-    <Button  onClick={() => history.goBack() } variant="contained">Back</Button>
+  const [userProfile,setuserProfile] = useState({});
+
+  fetch(`https://6166c4e013aa1d00170a670a.mockapi.io/usersInfo/${id}`,{method: 'GET'})       //get particular user details
+  .then((data) => data.json())
+  .then((user) => setuserProfile(user));
+ 
+  
+  //display the user details as below
+
+  return <div className='user-Info'>  
+    <img style={{ width: '400px', height: '380px', objectFit: 'cover' }} src={userProfile.profilePic} alt={userProfile.Name} />
+    <h2>{userProfile.Name}</h2>
+    <h5>Age: {userProfile.age}</h5>
+    <h5>City: {userProfile.city}</h5>
+    <Button  onClick={() => history.push('/') } variant="contained">Back</Button>
   </div>;
 
 

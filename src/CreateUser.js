@@ -18,8 +18,16 @@ export function CreateUser({ users, setUsers }) {
     <TextField onChange={(event) => setCity(event.target.value)} id="standard-basic" label="City" variant="standard" />
     <TextField onChange={(event) => setpic(event.target.value)} id="standard-basic" label="pic url" variant="standard" />
     <Button onClick={() => {
-      setUsers([...users, { Name, age, city, profilePic }]);
-      history.push('/');
+      const newUser = { Name, age, city, profilePic };
+      fetch('https://6166c4e013aa1d00170a670a.mockapi.io/usersInfo',
+      {
+        method: 'POST',body: JSON.stringify(newUser),
+        headers: {
+        'Content-Type': 'application/json'
+      },})
+      .then(() =>   history.push('/users'));
+      
+    
     }} variant="contained">Add user</Button>
   </div>;
 
