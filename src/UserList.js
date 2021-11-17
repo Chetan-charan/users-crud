@@ -30,6 +30,7 @@ export function UserList() {
       city={city}
       pic={profilePic}
       id={id}
+      key={id}
       deleteButton={<IconButton onClick={() => {
 
         fetch(`https://6166c4e013aa1d00170a670a.mockapi.io/usersInfo/${id}`,{method: 'DELETE'})       //delete method when the delete button is clicked

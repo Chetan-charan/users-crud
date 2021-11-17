@@ -1,6 +1,6 @@
 import Button from '@mui/material/Button';
 import { useHistory,useParams } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 export function UserProfile() {                                 //Component to Display the profile of user with details.
@@ -8,9 +8,12 @@ export function UserProfile() {                                 //Component to D
   const history = useHistory();
   const [userProfile,setuserProfile] = useState({});
 
-  fetch(`https://6166c4e013aa1d00170a670a.mockapi.io/usersInfo/${id}`,{method: 'GET'})       //get particular user details
+  useEffect(() => {
+    fetch(`https://6166c4e013aa1d00170a670a.mockapi.io/usersInfo/${id}`,{method: 'GET'})       //get particular user details
   .then((data) => data.json())
   .then((user) => setuserProfile(user));
+  },[id]);
+  
  
   
   //display the user details as below
